@@ -68,16 +68,7 @@ namespace ASD
         {
             Graph edgeGraph = new Graph(graph.EdgeCount, graph.Representation);
             names = new (int x, int y)[graph.EdgeCount];
-            // int nameCount = 0;
-            // List<int> 
-            // for (int vertex = 0; vertex < graph.VertexCount; vertex++)
-            // {
-            //     foreach (var neighbour in graph.OutNeighbors(vertex))
-            //     {
-            //         if (!names.Contains((vertex, neighbour)) && !names.Contains((neighbour, vertex)))
-            //             names[nameCount++] = (vertex, neighbour);
-            //     }
-            // }
+            
             int n = 0;
             foreach (var edge in graph.DFS().SearchAll())
             {
@@ -118,8 +109,30 @@ namespace ASD
         // a w tablicy colors zapamiętuje kolory poszczególnych wierzchołkow.
         public int VertexColoring(Graph graph, out int[] colors)
         {
-            colors = null;
-            return 0;
+            colors = new int[graph.VertexCount];
+            for (int i = 0; i < graph.VertexCount; i++)
+                colors[i] = Int32.MaxValue;
+            
+            int maxColor = 0;
+            for (int i = 0; i < graph.VertexCount; i++)
+            {
+                bool[] neighbourColors = new bool[i + 1];
+                
+                foreach (var neighbour in graph.OutNeighbors(i))
+                    if (colors[neighbour] != Int32.MaxValue)
+                        neighbourColors[colors[neighbour]] = true;
+                
+                for (int j = 0; j < i + 1; j++)
+                    if (!neighbourColors[j])
+                    {
+                        colors[i] = j;
+                        if (maxColor < j)
+                            maxColor = j;
+                        break;
+                    }
+            }
+            
+            return maxColor + 1;
         }
 
         // Funkcja znajduje silne kolorowanie krawędzi danego grafu.
@@ -135,6 +148,18 @@ namespace ASD
         // Jak się to ma do silnego kolorowania krawędzi grafu pierwotnego?
         public int StrongEdgeColoring(Graph graph, out Graph<int> coloredGraph)
         {
+            // Tworze graf krawedziowy
+            (int x, int y)[] names;
+            Graph lineGraph = LineGraph(graph, out names);
+
+            // Robie go do kwadratu, zeby byly polaczone wierzcholki oddzielone o 2
+            Graph squareLineGraph = Square(lineGraph);
+
+            // Koloruje go
+            
+
+            // Przepisuje kolory do oryginalnego grafu
+
             coloredGraph = null;
             return 0;
         }
