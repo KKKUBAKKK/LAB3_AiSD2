@@ -32,6 +32,7 @@ namespace ASD
             //     }
             // }
             
+            // Moze moznaby dodac graf z ktorego usuwamy wierzcholki, jak przez niego przechodzimy???
             // DUZO SZYBIEJ !!!
             // Teraz sposob po wierzcholkach
             Graph square = new Graph(graph.VertexCount, graph.Representation);
@@ -65,8 +66,40 @@ namespace ASD
         // Np.dla wierzchołka powstałego z krawedzi <0,1> do tablicy zapisujemy krotke (0, 1) - przyda się w dalszych etapach
         public Graph LineGraph(Graph graph, out (int x, int y)[] names)
         {
-            names = null;
-            return null;
+            Graph edgeGraph = new Graph(graph.EdgeCount, graph.Representation);
+            names = new (int x, int y)[graph.EdgeCount];
+            // int nameCount = 0;
+            // List<int> 
+            // for (int vertex = 0; vertex < graph.VertexCount; vertex++)
+            // {
+            //     foreach (var neighbour in graph.OutNeighbors(vertex))
+            //     {
+            //         if (!names.Contains((vertex, neighbour)) && !names.Contains((neighbour, vertex)))
+            //             names[nameCount++] = (vertex, neighbour);
+            //     }
+            // }
+            int n = 0;
+            foreach (var edge in graph.DFS().SearchAll())
+            {
+                if (!names.Contains((edge.To, edge.From)) && !names.Contains((edge.From, edge.To)))
+                    names[n++] = (edge.From, edge.To);
+
+                if (n == graph.EdgeCount)
+                    break;
+            }
+
+            for (int i = 0; i < graph.EdgeCount - 1; i++)
+            {
+                for (int j = i + 1; j < graph.EdgeCount; j++)
+                {
+                    if (names[i].x == names[j].x || names[i].x == names[j].y || 
+                        names[i].y == names[j].x || names[i].y == names[j].y)
+                        edgeGraph.AddEdge(i, j);
+                }
+            }
+
+
+            return edgeGraph;
         }
 
         // Część III
