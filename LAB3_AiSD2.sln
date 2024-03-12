@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dwudzielnosc_kruskal", "dwudzielnosc_kruskal\dwudzielnosc_kruskal.csproj", "{B0B79109-74DB-4DC1-AC08-D10C77B67391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silne_kolorowanie_krawedzi", "silne_kolorowanie_krawedzi\silne_kolorowanie_krawedzi.csproj", "{39A0A854-A025-417F-8E3E-7478BF4E9846}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0B79109-74DB-4DC1-AC08-D10C77B67391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0B79109-74DB-4DC1-AC08-D10C77B67391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0B79109-74DB-4DC1-AC08-D10C77B67391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0B79109-74DB-4DC1-AC08-D10C77B67391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39A0A854-A025-417F-8E3E-7478BF4E9846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39A0A854-A025-417F-8E3E-7478BF4E9846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39A0A854-A025-417F-8E3E-7478BF4E9846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39A0A854-A025-417F-8E3E-7478BF4E9846}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
