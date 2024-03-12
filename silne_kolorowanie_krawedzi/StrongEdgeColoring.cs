@@ -160,10 +160,11 @@ namespace ASD
             int colorsCount = VertexColoring(squareLineGraph, out colors);
 
             // Przepisuje kolory do oryginalnego grafu
+            coloredGraph = new Graph<int>(graph.VertexCount, graph.Representation);
+            for (int i = 0; i < names.Length; i++)
+                coloredGraph.AddEdge(names[i].x, names[i].y, colors[i]);
             
-            
-            coloredGraph = null;
-            return 0;
+            return colorsCount;
         }
 
     }
