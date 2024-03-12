@@ -156,10 +156,12 @@ namespace ASD
             Graph squareLineGraph = Square(lineGraph);
 
             // Koloruje go
-            
+            int[] colors;
+            int colorsCount = VertexColoring(squareLineGraph, out colors);
 
             // Przepisuje kolory do oryginalnego grafu
-
+            
+            
             coloredGraph = null;
             return 0;
         }
